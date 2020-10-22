@@ -1,28 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components/macro';
+import GlobalStyle from './Global';
+import Header from './layouts/Header';
+import { Card } from './elements';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <Header />
+      <main css={`
+        background: lightgreen;
+        h2 {
+          font-size: 50px;
+        }
+      `}
+      >
+        <Card>
+          <h2>Card Heading</h2>
+          <Card.Button as="a">Say Hello</Card.Button>
+          <Card.Button modifiers="cancel">Say Hello</Card.Button>
+        </Card>
+      </main>
     </div>
   );
 }
